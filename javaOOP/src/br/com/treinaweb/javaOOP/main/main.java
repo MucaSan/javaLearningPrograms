@@ -85,11 +85,26 @@ public class main {
 		 		System.out.println(String.format("The name of the dog is: %s! Congratulations ", objDog.getName()));
 		 		System.out.println("Are you sure, that is the name that you want for your dog? ");
 		 		System.out.println("After, it's confirmed, you won't be able to change it");
-		 		System.out.println(String.format("Still name your dog %s ?", objDog.getName()));
+		 		System.out.print(String.format("Still name your dog %s [y/N]?", objDog.getName()));
 		 		
-		 		
+		 		String confirmName = objConfirmName.nextLine();
+		 		do {
+		 			if (confirmName.toUpperCase().equals("Y")) {
+		 				return;
+		 			}
+		 			else if(confirmName.toUpperCase().equals("N")) {
+		 				objDog.setName("");
+		 			}
+		 			else {
+		 				System.out.println(" \n You've made a wrong choice! Insert [y/N]");
+		 				
+		 			}
+		 		} while(!confirmName.toUpperCase().equals("Y") || !confirmName.toUpperCase().equals("N"));
 		 		break;
 		 	case "2":
+		 		System.out.print("Insert the amount of food that you'd like to feed your pet: ");
+		 		Scanner objSetAmountFood = new Scanner (System.in);
+		 		objDog.insertFood(objSetAmountFood.nextFloat());
 		 		break;
 		 	case "3":
 		 		break;
@@ -110,9 +125,32 @@ public class main {
 	public static void doActionMainCat(String action, cat objCat) {
 		switch(action) {
 		 	case "1":
+		 		System.out.print("Insert the name of the dog: ");
+		 		Scanner objSetNameCat = new Scanner (System.in);
+		 		Scanner objConfirmName = new Scanner(System.in);
+		 		objCat.setName(objSetNameCat.nextLine());
+		 		System.out.println(String.format("The name of the dog is: %s! Congratulations ", objCat.getName()));
+		 		System.out.println("Are you sure, that is the name that you want for your dog? ");
+		 		System.out.println("After, it's confirmed, you won't be able to change it");
+		 		System.out.println(String.format("Still name your dog %s [y/N]?", objCat.getName()));
 		 		
+		 		String confirmName = objConfirmName.nextLine();
+		 		do {
+		 			if (confirmName.toUpperCase().equals("Y")) {
+		 				return;
+		 			}
+		 			else if(confirmName.toUpperCase().equals("N")) {
+		 				objCat.setName("");
+		 			}
+		 			else {
+		 				System.out.println("You've made a wrong choice! Insert [y/N]");
+		 			}
+		 		} while(!confirmName.toUpperCase().equals("Y") || !confirmName.toUpperCase().equals("N"));
 		 		break;
 		 	case "2":
+		 		System.out.print("Insert the amount of food that you'd like to feed your pet: ");
+		 		Scanner objSetAmountFood = new Scanner (System.in);
+		 		objCat.insertFood(objSetAmountFood.nextFloat());
 		 		break;
 		 	case "3":
 		 		break;

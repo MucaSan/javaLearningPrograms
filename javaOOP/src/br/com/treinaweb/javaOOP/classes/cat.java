@@ -42,12 +42,8 @@ public class cat {
 	public int getSteps() {
 		return steps;
 	}
-	// this will set an action of walking, 
-	public void walk(int step) {
-		this.steps += step;
-	}
-	public void eat(float food) {
-		this.amountFood += food;
+	public void insertFood(float amount) {
+		amountFood += amount;
 	}
 	
 }

@@ -43,4 +43,8 @@ public class dog {
 		return steps;
 	}
 	
+	public void insertFood(float amount) {
+		amountFood += amount;
+	}
+	
 }
