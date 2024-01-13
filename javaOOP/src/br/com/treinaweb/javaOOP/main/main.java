@@ -11,14 +11,12 @@ public class main {
 		// initiate the simple prompt to make the user interact with the pet;
 		
 		do{
-			System.out.print("Choose which animal do you want, a dog or a cat?");
+			System.out.println("Choose which animal do you want, a dog or a cat?");
 			Scanner objAnimalOption = new Scanner (System.in);
 			Scanner objLeaveCondition = new Scanner (System.in);
 			Scanner objActionCondition = new Scanner(System.in);
 			String animalOption = objAnimalOption.nextLine();
-			
-			objAnimalOption.close();
-			   if(animalOption.toUpperCase().equals(dog.getTypeAnimal())) {
+			   if(animalOption.toUpperCase().equals(dog.getTypeAnimal().toUpperCase())) {
 				  System.out.println("Congratulations, you've chosen a dog!");
 				  dog objDog = new dog();
 				  boolean takeCarePet = true;
@@ -27,7 +25,7 @@ public class main {
 					 String actionCondition = objActionCondition.nextLine();
 					 doActionMainDog(actionCondition, objDog);
 				  }while(takeCarePet);
-			  }else if (animalOption.toUpperCase().equals(cat.getTypeAnimal())){
+			  }else if (animalOption.toUpperCase().equals(cat.getTypeAnimal().toUpperCase())){
 				  System.out.println("Congrulations, you've chosen a cat!");
 				  cat objCat = new cat();
 				  boolean takeCarePet = true;
@@ -115,6 +113,13 @@ public class main {
 		 	case "6":
 		 		break;
 		 	case "7":
+		 		System.out.println(String.format("Pet's name: %s  ", objDog.getName()));
+		 		System.out.println(String.format("Type of the pet: %s  ", objDog.getTypeAnimal()));
+		 		System.out.println(String.format("Nick name of the pet: %s ", objDog.getNickname()));
+		 		System.out.println(String.format("The age of the pet: %s ", objDog.getAge()));
+		 		System.out.println(String.format("The personality of the pet is: %s", objDog.getPersonality()));
+		 		System.out.println(String.format("The amount of food you've fed your pet is: ", objDog.getAmountFood()));
+		 		System.out.println(String.format("You've walked %s steps with your pet! ", objDog.getSteps()));
 		 		break;
 		 	
 		 	default:
@@ -161,6 +166,13 @@ public class main {
 		 	case "6":
 		 		break;
 		 	case "7":
+		 		System.out.println(String.format("Pet's name: %s  ", objCat.getName()));
+		 		System.out.println(String.format("Type of the pet: %s  ", objCat.getTypeAnimal()));
+		 		System.out.println(String.format("Nick name of the pet: %s ", objCat.getNickname()));
+		 		System.out.println(String.format("The age of the pet: %s ", objCat.getAge()));
+		 		System.out.println(String.format("The personality of the pet is: %s", objCat.getPersonality()));
+		 		System.out.println(String.format("The amount of food you've fed your pet is: ", objCat.getAmountFood()));
+		 		System.out.println(String.format("You've walked %s steps with your pet! ", objCat.getSteps()));
 		 		break;
 		 	default:
 		 		
