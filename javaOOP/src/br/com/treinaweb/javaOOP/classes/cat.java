@@ -45,5 +45,9 @@ public class cat {
 	public void insertFood(float amount) {
 		amountFood += amount;
 	}
+	public void insertSteps(int steps) {
+		this.steps+=steps;
+	}
+	
 	
 }
