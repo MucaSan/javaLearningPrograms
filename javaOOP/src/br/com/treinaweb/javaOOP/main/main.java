@@ -12,6 +12,7 @@ public class main {
 		// initiate the simple prompt to make the user interact with the pet;
 		
 		do{
+			
 			System.out.println("Choose which animal do you want, a dog or a cat?");
 			Scanner objAnimalOption = new Scanner (System.in);
 			Scanner objLeaveCondition = new Scanner (System.in);
@@ -142,7 +143,7 @@ public class main {
 		 		break;
 		 	case "6":
 		 		Scanner objLeaveInfo = new Scanner(System.in);
-		 		System.out.println(String.format("Pet's name of the pet: %s ", objDog.getNickname()));
+		 		System.out.println(String.format("Pet's name: %s ", objDog.getNickname()));
 		 		System.out.println(String.format("The age of the pet: %s ", objDog.getAge()));
 		 		System.out.println(String.format("The personality of the pet is: %s", objDog.getPersonality()));
 		 		System.out.println(String.format("The amount of food you've fed your pet is: %f", objDog.getAmountFood()));
@@ -165,61 +166,104 @@ public class main {
 		 		hasEnded = true;
 		 		break;
 		 	default:
+		 		return;
 		 		
 		}
 
 	}
 	public static void doActionMainCat(String action, cat objCat) {
 		switch(action) {
-		 	case "1":
-		 		System.out.print("Insert the name of the dog: ");
-		 		Scanner objSetNameCat = new Scanner (System.in);
-		 		Scanner objConfirmName = new Scanner(System.in);
-		 		objCat.setName(objSetNameCat.nextLine());
-		 		System.out.println(String.format("The name of the dog is: %s! Congratulations ", objCat.getName()));
-		 		System.out.println("Are you sure, that is the name that you want for your dog? ");
-		 		System.out.println("After, it's confirmed, you won't be able to change it");
-		 		System.out.println(String.format("Still name your dog %s [y/N]?", objCat.getName()));
-		 		
-		 		String confirmName = objConfirmName.nextLine();
-		 		do {
-		 			if (confirmName.toUpperCase().equals("Y")) {
-		 				return;
-		 			}
-		 			else if(confirmName.toUpperCase().equals("N")) {
-		 				objCat.setName("");
-		 			}
-		 			else {
-		 				System.out.println("You've made a wrong choice! Insert [y/N]");
-		 			}
-		 		} while(!confirmName.toUpperCase().equals("Y") || !confirmName.toUpperCase().equals("N"));
-		 		break;
-		 	case "2":
-		 		System.out.print("Insert the amount of food that you'd like to feed your pet: ");
-		 		Scanner objSetAmountFood = new Scanner (System.in);
-		 		objCat.insertFood(objSetAmountFood.nextFloat());
-		 		break;
-		 	case "3":
-		 		break;
-		 	case "4":
-		 		break;
-		 	case "5":
-		 		break;
-		 	case "6":
-		 		break;
-		 	case "7":
-		 		Scanner objLeaveInfo = new Scanner(System.in);
-		 		System.out.println(String.format("Pet's name: %s  ", objCat.getName()));
-		 		System.out.println(String.format("Type of the pet: %s  ", objCat.getTypeAnimal()));
-		 		System.out.println(String.format("Nick name of the pet: %s ", objCat.getNickname()));
-		 		System.out.println(String.format("The age of the pet: %s ", objCat.getAge()));
-		 		System.out.println(String.format("The personality of the pet is: %s", objCat.getPersonality()));
-		 		System.out.println(String.format("The amount of food you've fed your pet is: ", objCat.getAmountFood()));
-		 		System.out.println(String.format("You've walked %s steps with your pet! ", objCat.getSteps()));
-		 		
-		 		
-		 		break;
-		 		
+		case "1":
+	 		System.out.print("Insert the name of the Cat: ");
+	 		Scanner objSetNameCat = new Scanner (System.in);
+	 		Scanner objConfirmName = new Scanner(System.in);
+	 		objCat.setName(objSetNameCat.nextLine());
+	 		System.out.println(String.format("The name of the Cat is: %s! Congratulations ", objCat.getName()));
+	 		System.out.println("Are you sure, that is the name that you want for your Cat? ");
+	 		System.out.println("After, it's confirmed, you won't be able to change it");
+	 		System.out.print(String.format("Still name your Cat %s [y/N]?", objCat.getName()));
+	 		
+	 		String confirmName = objConfirmName.nextLine();
+	 		do {
+	 			if (confirmName.toUpperCase().equals("Y")) {
+	 				return;
+	 			}
+	 			else if(confirmName.toUpperCase().equals("N")) {
+	 				objCat.setName("");
+	 			}
+	 			else {
+	 				System.out.println(" \n You've made a wrong choice! Insert [y/N]");
+	 				confirmName = objConfirmName.nextLine();
+	 				
+	 			}
+	 		} while(!(confirmName.toUpperCase().equals("Y")) || !(confirmName.toUpperCase().equals("N")));
+	 		break;
+	 	case "2":
+	 		System.out.println("Insert the amount of food that you'd like to feed your pet: ");
+	 		Scanner objSetAmountFood = new Scanner (System.in);
+	 		objCat.insertFood(objSetAmountFood.nextFloat());
+	 		System.out.println(objCat.getAmountFood());
+	 		break;
+	 	case "3":
+	 		System.out.println("Insert the amount of steps that you'd like to do with your pet. (it's possible to walk backwards too");
+	 		Scanner objSetAmountSteps = new Scanner (System.in);
+	 		objCat.insertSteps(objSetAmountSteps.nextInt());
+	 		break;
+	 	case "4":
+	 		System.out.println("Insert the age of your Cat (only full integer numbers): ");
+	 		Scanner objSetAgeCat = new Scanner (System.in);
+	 		Scanner objConfirmAge = new Scanner(System.in);
+	 		objCat.setAge(objSetAgeCat.nextInt());
+	 		System.out.println(String.format("The age of the Cat is: %d! Congratulations ", objCat.getAge()));
+	 		System.out.println("Are you sure, that is that the age that you want for your Cat? ");
+	 		System.out.println("After, it's confirmed, you won't be able to change it");
+	 		System.out.println(String.format("Still age your Cat %d years old [y/N]?", objCat.getAge()));
+	 		String confirmAge = objConfirmAge.nextLine();
+	 		do {
+	 			
+	 			if (confirmAge.toUpperCase().equals("Y")) {
+	 				return;
+	 			}
+	 			else if(confirmAge.toUpperCase().equals("N")) {
+	 				objCat.setAge(0);
+	 			}
+	 			else {
+	 				System.out.println("You've made a wrong choice! Insert [y/N]");
+	 				confirmAge = objConfirmAge.nextLine();
+	 			}
+	 		} while(!confirmAge.toUpperCase().equals("Y") || !confirmAge.toUpperCase().equals("N"));
+	 		break;
+	 	case "5":
+	 		System.out.println("Insert the personality of your Cat:");
+	 		Scanner objSetPersonalityCat = new Scanner(System.in);
+	 		objCat.setPersonality(objSetPersonalityCat.nextLine());
+	 		break;
+	 	case "6":
+	 		Scanner objLeaveInfo = new Scanner(System.in);
+	 		System.out.println(String.format("Pet's name: %s ", objCat.getNickname()));
+	 		System.out.println(String.format("The age of the pet: %s ", objCat.getAge()));
+	 		System.out.println(String.format("The personality of the pet is: %s", objCat.getPersonality()));
+	 		System.out.println(String.format("The amount of food you've fed your pet is: %f", objCat.getAmountFood()));
+	 		System.out.println(String.format("You've walked %s steps with your pet! ", objCat.getSteps()));
+	 		System.out.println("When you'd like to leave the prompt, press Y");
+	 		String confirmLeaveInfo = objLeaveInfo.nextLine();
+	 		do {
+	 			
+	 			if (confirmLeaveInfo.toUpperCase().equals("Y")) {
+	 				return;
+	 			}
+	 			else {
+	 				System.out.println("You've made a wrong choice! Press [Y] and then enter!");
+	 				confirmLeaveInfo = objLeaveInfo.nextLine();
+	 			}
+	 		} while(!confirmLeaveInfo.toUpperCase().equals("Y"));
+	 		break;
+	 	case "7":
+	 		takeCarePet = false;
+	 		hasEnded = true;
+	 		break;
+	 	default:
+	 		return;
 		 		
 		}
 
