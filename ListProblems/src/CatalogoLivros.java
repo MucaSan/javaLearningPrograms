@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogoLivros {
-	List <Livro> catalogoLivros = new ArrayList<>();
+	private List <Livro> catalogoLivros = new ArrayList<>();
 	
 	
 	public void adicionarLivro(String titulo, String autor, int anoPublicacao) {
@@ -39,7 +39,14 @@ public class CatalogoLivros {
 	}
 	
 	public static void main(String[] args) {
-		
+		CatalogoLivros catalogo = new CatalogoLivros();
+		catalogo.adicionarLivro("TITULO1", "AUTOR1", 2018);
+		catalogo.adicionarLivro("TITULO2", "AUTOR2", 1996);
+		catalogo.adicionarLivro("TITULO3", "AUTOR3", 2003);
+		catalogo.adicionarLivro("TITULO4", "AUTOR4", 1783);
+		catalogo.adicionarLivro("TITULO5", "AUTOR5", 1889);
+		catalogo.adicionarLivro("TITULO6", "AUTOR6", 1992);
+		System.out.println(catalogo.pesquisaPorIntervalo(1996, 2020));
 
 	}
 
