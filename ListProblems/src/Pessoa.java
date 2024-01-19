@@ -1,6 +1,6 @@
-
-public class Pessoa {
-	private String nome;
+import java.util.Comparator;
+public class Pessoa implements Comparable<Pessoa> {
+	public static String nome;
 	private int idade;
 	private double altura;
 	
@@ -11,6 +11,9 @@ public class Pessoa {
 		this.altura = altura;
 	}
 	
+	public int compareTo(Pessoa p) {
+		return Integer.compare(idade, p.getIdade());
+	}
 	
 	public String getNome() {
 		return nome;
@@ -21,4 +24,14 @@ public class Pessoa {
 	public double getAltura() {
 		return altura;
 	}
+	
+	
+	public static class OrdenarAltura implements Comparator<Pessoa>{
+		public int compare(Pessoa p1, Pessoa p2) {
+			return Double.compare(p1.getAltura(), p2.getAltura());
+		}
+	}
+
 }
+
+
